@@ -1,6 +1,7 @@
 const razorpay = require('razorpay')
 const orders = require('../model/orderSchema')
-const crypto = require('crypto')
+const crypto = require('crypto');
+const  config = require('../config/config')
 
 
 
@@ -10,8 +11,8 @@ const creatingOrder = async(req,res)=>{
     try{
 
         const rzpay = new razorpay({
-            key_id:"rzp_test_rVgBYp3GHn7YId",
-            key_secret:"QhF8UmEDLz9NvyyeJBCqrB83"
+            key_id:config.rzId,
+            key_secret:config.rzsecret
         })
 
         const options = {
