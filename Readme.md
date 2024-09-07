@@ -94,10 +94,10 @@ This is a full-stack eCommerce website that includes both **Admin** and **User**
 ## Screenshots
 
 ### Home Page
-![Home Page Screenshot](path_to_image)
+![Home Page Screenshot](https://res.cloudinary.com/dfr6qnt6a/image/upload/v1725710185/qbrleakmy4pkyyzacnqn.png)
 
 ### Admin Dashboard
-![Admin Dashboard Screenshot](path_to_image)
+![Admin Dashboard Screenshot](https://res.cloudinary.com/dfr6qnt6a/image/upload/v1725710155/cgn0ipengunbqfn2c2vw.png)
 
 ## Contributing
 
