@@ -1,0 +1,85 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+input,textarea,select{
+  @apply border border-gray-200 p-2 rounded px-4 w-full  ;
+  @apply shadow-md;
+  @apply mb-2;
+}
+
+input:focus,textarea:focus,select:focus{
+  @apply border-blue-900 outline-none; 
+}
+
+h1{
+  @apply md:text-blue-900 text-gray-800 mb-2 text-xl font-bold;
+}
+
+label{
+  @apply md:text-blue-900 text-gray-600 text-sm;
+}
+
+.btn-primary{
+  @apply md:bg-blue-900 bg-primary text-white px-4  rounded-sm py-1 shadow-sm ;
+}
+
+table.basic{
+  @apply w-full bg-white shadow-sm rounded-md;
+}
+
+table.basic thead tr td,table.basic thead tr th{
+  @apply text-sm md:text-lg text-gray-600 uppercase border-b border-gray-300 px-4 py-2;
+}
+
+table.basic tbody tr td{
+  @apply text-sm md:text-lg text-gray-800 border-b border-gray-400 px-4 py-2 text-center;
+}
+
+table.basic tr td{
+  @apply  px-4 py-2;
+}
+
+table.basic a{
+  @apply md:text-[0.95rem] gap-1 md:rounded-sm md:inline-flex md:items-center md:justify-center md:mr-4 md:gap-1  rounded-sm  text-sm inline-flex mx-1 items-center;
+}
+
+
+.btn-default , .btn-red{
+  @apply px-5 py-2 rounded-md;
+}
+
+.btn-red{
+  @apply bg-red-200 text-red-600 rounded-sm ;
+}
+
+.btn-default{
+  @apply bg-white text-gray-800 border border-gray-200 rounded-sm shadow-sm;
+}
+
+@keyframes dropdown {
+  0%{
+    transform: translateY(-100%) scale(0);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0%) scale(1);
+    opacity: 1;
+  }
+}
