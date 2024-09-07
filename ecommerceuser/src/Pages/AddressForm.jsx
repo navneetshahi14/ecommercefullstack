@@ -5,15 +5,14 @@ const AddressForm = () => {
 
     const { setAddressform,updatingAddress,userdetails,viewdetails } = useContext(EcomuserContext)
 
-    const [phone,setphone] = useState(userdetails.PhoneNo)
-    const [fullAddress,setfullAddress] = useState(userdetails.address)
-    const [postal,setpostal] = useState(userdetails.postal)
-    const [city,setcity] = useState(userdetails.City)
-    const [country,setCountry] = useState(userdetails.country)
+    const [phone,setphone] = useState(userdetails?.PhoneNo)
+    const [fullAddress,setfullAddress] = useState(userdetails?.address)
+    const [postal,setpostal] = useState(userdetails?.postal)
+    const [city,setcity] = useState(userdetails?.City)
+    const [country,setCountry] = useState(userdetails?.country)
     
 
     const clickfunc = () =>{
-        
         updatingAddress(phone,fullAddress,postal,city,country)
     }
 

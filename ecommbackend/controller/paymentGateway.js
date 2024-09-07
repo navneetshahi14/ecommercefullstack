@@ -36,7 +36,7 @@ const creatingOrder = async(req,res)=>{
         
 
     }catch(err){
-        console.log(err.message)
+        console.log("Error"+err)
     }
 }
 

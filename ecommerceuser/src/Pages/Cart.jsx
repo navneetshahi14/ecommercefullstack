@@ -6,7 +6,7 @@ import AddressForm from './AddressForm'
 
 const Cart = () => {
 
-    const {cartProduct,allproducts,addtocart,removefromcart,setAddressform,addressform,userdetails,viewdetails,handlePayment } = useContext(EcomuserContext)
+    const {cartProduct,allproducts,allProduct,addtocart,removefromcart,setAddressform,addressform,userdetails,viewdetails,handlePayment } = useContext(EcomuserContext)
     const [prod,setProd] = useState([])
     const [lengthname,setlengthname] = useState(localStorage.getItem('name').length)
 
@@ -25,11 +25,15 @@ const Cart = () => {
 
     let total = 0;
     for(const productid of cartProduct){
+        console.log(allproducts.find(p=>p._id === productid))
+        
         const pricetoshow = parseInt(allproducts.find(p => p._id === productid)?.price || 0)
         total += pricetoshow
+
     }
 
     useEffect(()=>{
+        allProduct()
         viewdetails()
     },[])
 

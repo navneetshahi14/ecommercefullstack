@@ -162,7 +162,7 @@ const EditPage = () => {
             <label htmlFor="">Product Description</label>
             <input type="text" value={description} onChange={(e)=>setDescription(e.target.value)} placeholder='Description'/>
 
-            <label htmlFor="">Product Price</label>
+            <label htmlFor="">Product Price(in Rs)</label>
             <input type="number" value={price} onChange={(e)=>setPrice(e.target.value)} placeholder='Price' />
 
             <button onClick={handleSubmit} className='btn-primary'>Save</button>

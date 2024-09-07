@@ -143,7 +143,7 @@ const NewProduct = () => {
             <label htmlFor="">Description</label>
             <textarea placeholder='Description' value={productdescription} onChange={(e)=>setProductDescription(e.target.value)} ></textarea>
 
-            <label htmlFor="">Price (in Usd)</label>
+            <label htmlFor="">Price (in Rs)</label>
             <input type="number" placeholder='Price' value={productprice} onChange={(e)=>setProductPrice(e.target.value)} />
 
             <button onClick={handleSumbit} className='btn-primary'>Save</button>

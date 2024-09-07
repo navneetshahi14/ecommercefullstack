@@ -125,6 +125,7 @@ const EcomUserState = ({children}) => {
         })
         
         const resdata = await data.json()
+        setAllproducts(resdata)
         return resdata
         
 

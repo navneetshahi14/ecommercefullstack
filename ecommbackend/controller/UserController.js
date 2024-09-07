@@ -42,8 +42,10 @@ const cartProducts = async(req,res) =>{
     try {
         
         const {ids} = req.body
+        
 
         res.json(await product.find({_id:ids}))
+
         
     } catch (error) {
         console.log(error.message)
@@ -78,8 +80,9 @@ const addingaddress = async(req,res) =>{
         const {userId,address,postal,City,Country,PhoneNo} = req.body
 
         const userfind = await userDetailsForm.find({userId:userId})
+        console.log(userfind)
 
-        if(userfind){
+        if(userfind.length >0){
             const updateuser = await userDetailsForm.findOneAndUpdate({userId:userId},{
                 $set:{
                     address:address,
