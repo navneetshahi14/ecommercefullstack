@@ -13,10 +13,6 @@ app.use(cors({
     origin:"https://ecommerce-admin-smoky-phi.vercel.app",
     methods:["POST","GET"],
     credentials:true
-},{
-    origin:"https://ecommerce-full-stack-project.vercel.app",
-    methods:["POST","GET"],
-    credentials:true
 }))
 app.use(bodyparser.json())
 app.use(express.json())
