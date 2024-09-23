@@ -13,10 +13,10 @@ const EcomUserState = ({children}) => {
     const [allproducts,setAllproducts] = useState([])
     const [cartIt,setCartIt] = useState([])
     const [user,setUser] = useState({})
-    const [logged,setLogged] = useState(JSON.parse(localStorage.getItem('loggedIn'))||false)
+    const [logged,setLogged] = useState(JSON.parse(localStorage.getItem('loggedIn')) || false)
     const [addressform,setAddressform] = useState(false)
     const [userdetails,setuserdetails] = useState({})
-    const [usersId,setUsersId] = useState(JSON.parse(localStorage.getItem('userId')))
+    const [usersId,setUsersId] = useState(JSON.parse(localStorage.getItem('userId')) || "")
     const [orderdetail,setOrderdetail] = useState(false)
     const [detailedproduct,setDetailedProduct] = useState([])
 
@@ -74,10 +74,14 @@ const EcomUserState = ({children}) => {
 
 
     const addtocart=(productid)=>{
-        if(logged === true){
-            setCartProduct(prev=>[...prev,productid])
-        }else{
-            alert("you are not logged in")
+        try{
+            if(logged === true){
+                setCartProduct(prev=>[...prev,productid])
+            }else{
+                alert("you are not logged in")
+            }
+        }catch(err){
+            console.log(err)
         }
     }
 
@@ -87,109 +91,141 @@ const EcomUserState = ({children}) => {
         }
     },[cartProduct])
 
-    const getProducts = async()=>{
-        const data = await fetch('http://0.0.0.0:8000/user/allProduct',{
-            method:"GET",
-            headers:{
-                "Content-Type":"application."
-            }
-        })
 
-        const resData = await data.json()
-        setProducts(resData)
-        return resData
+    const getProducts = async()=>{
+        try{
+            const data = await fetch('http://0.0.0.0:8000/user/allProduct',{
+                method:"GET",
+                headers:{
+                    "Content-Type":"application."
+                }
+            })
+    
+            const resData = await data.json()
+            setProducts(resData)
+            return resData
+        }catch(err){
+            console.log(err)
+        }
+        
     }
 
 
     const getnewProducts = async()=>{
-        const data = await fetch("http://0.0.0.0:8000/user/newProduct",{
-            method:"GET",
-            headers:{
-                "Content-Type":"application/json"
-            }
-        })
-
-        const resData = await data.json()
-        settingfeaturedproducts()
-        setLogged(JSON.parse(localStorage.getItem('loggedIn')))
-        setNewProducts(resData)
-        return resData
+        try{
+            const data = await fetch("http://0.0.0.0:8000/user/newProduct",{
+                method:"GET",
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            })
+    
+            const resData = await data.json()
+            settingfeaturedproducts()
+            setLogged(JSON.parse(localStorage.getItem('loggedIn')))
+            setNewProducts(resData)
+            return resData
+        }catch(err){
+            console.log(err)
+        }
+        
     }
 
     const allProduct = async() =>{
-        const data = await fetch("http://0.0.0.0:8000/user/allProduct",{
-            method:"GET",
-            headers:{
-                "Content-Type":"application/json"
-            }
-        })
-        
-        const resdata = await data.json()
-        setAllproducts(resdata)
-        return resdata
-        
-
+        try{
+            const data = await fetch("http://0.0.0.0:8000/user/allProduct",{
+                method:"GET",
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            })
+            
+            const resdata = await data.json()
+            setAllproducts(resdata)
+            return resdata
+        }catch(err){
+            console.log(err)
+        }
     }
 
     const getfeatured = async()=>{
-        const data = await fetch("http://0.0.0.0:8000/user/getFeatured",{
-            method:"GET",
-            headers:{
-                "Content-Type":"application/json"
-            }
-        })
-
-        const resdata = await data.json()
-        console.log(resdata)
-        console.log(typeof(resdata.productid))
-
-        return resdata
+        try{
+            const data = await fetch("http://0.0.0.0:8000/user/getFeatured",{
+                method:"GET",
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            })
+    
+            const resdata = await data.json()
+            console.log(resdata)
+            console.log(typeof(resdata.productid))
+    
+            return resdata
+        }catch(err){
+            console.log(err)
+        }
+        
 
     }
 
     const cartProducts = async() =>{
-        console.log(cartProduct)
-        const data = await fetch('http://0.0.0.0:8000/user/cartproduct',{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify(cartProduct)
-        })
-
-        const resdata = await data.json()
-        setCartIt(resdata)
+        try{
+            const data = await fetch('http://0.0.0.0:8000/user/cartproduct',{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify(cartProduct)
+            })
+    
+            const resdata = await data.json()
+            setCartIt(resdata)
+            
+        }catch(err){
+            console.log(err)
+        }
         
     }
 
     const settingfeaturedproducts = async()=>{
-        const all =  await allProduct()
-        console.log(all)
-        setAllproducts(all)
-        const produc = await getfeatured()
-        console.log(produc)
-        const productid = produc.productid
-
-        all.map(product =>{
-            console.log(typeof(product._id))
-            if(product._id == productid){
-                console.log(product)
-                setFeatured(product)
-            }else{
-                return
-            }
-        })
+        try{
+            const all =  await allProduct()
+            console.log(all)
+            setAllproducts(all)
+            const produc = await getfeatured()
+            console.log(produc)
+            const productid = produc.productid
+    
+            all.map(product =>{
+                console.log(typeof(product._id))
+                if(product._id == productid){
+                    console.log(product)
+                    setFeatured(product)
+                }else{
+                    return
+                }
+            })
+        }catch(err){
+            console.log(err)
+        }
+        
 
     }
 
     const removefromcart = (id) =>{
-        setCartProduct(prev =>{
-            const pos = prev.indexOf(id)
-            if(pos !== -1){
-                return prev.filter((value,index)=> index !== pos)
-            }
-            return prev
-        })
+        try{
+            setCartProduct(prev =>{
+                const pos = prev.indexOf(id)
+                if(pos !== -1){
+                    return prev.filter((value,index)=> index !== pos)
+                }
+                return prev
+            })
+        }catch(err){
+            console.log(err)
+        }
+        
     }
 
     const updatingAddress = async(phoneNo,address,postal,city,country) =>{
@@ -224,52 +260,65 @@ const EcomUserState = ({children}) => {
     }
 
     const viewdetails = async() =>{
-
-        let length = localStorage.getItem('userId').length
-        let userid = localStorage.getItem('userId').substring(1,length-1)
-
-        const res = await fetch(`http://0.0.0.0:8000/user/viewsdetails/${usersId}`,{
-            method:"GET",
-            headers:{
-                "Content-Type":"application/json"
-            }
-        })
-        const resdata = await res.json()
+        try{
+            let length = localStorage.getItem('userId').length
+            let userid = localStorage.getItem('userId').substring(1,length-1)
+    
+            const res = await fetch(`http://0.0.0.0:8000/user/viewsdetails/${usersId}`,{
+                method:"GET",
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            })
+            const resdata = await res.json()
+    
+            
+            console.log(resdata)
+            setuserdetails(resdata[0])
+        }catch(err){
+            console.log(err)
+        }
 
         
-        console.log(resdata)
-        setuserdetails(resdata[0])
     }
 
     const [showcaseProduct,setShowcaseProduct] = useState([])
 
     const productshowcase = async(productid) =>{
+        try{
+            const res = await fetch(`http://0.0.0.0:8000/user/product/${productid}`,{
+                method:"GET",
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            })
+    
+            const resdata = await res.json()
+    
+            setShowcaseProduct(resdata)
+        }catch(err){
+            console.log(err)
+        }
         
-        const res = await fetch(`http://0.0.0.0:8000/user/product/${productid}`,{
-            method:"GET",
-            headers:{
-                "Content-Type":"application/json"
-            }
-        })
-
-        const resdata = await res.json()
-
-        setShowcaseProduct(resdata)
     }
 
     const [orderfound,setOrderfound] = useState([])
 
     const findorders = async() =>{
-
-        const res = await fetch(`http://0.0.0.0:8000/user/order/${usersId}`,{
-            method:"GET",
-            headers:{
-                "Content-Type":"application/json"
-            }
-        })
-        const resdata = await res.json()
-        console.log(resdata)
-        setOrderfound(resdata)
+        try{
+            const res = await fetch(`http://0.0.0.0:8000/user/order/${usersId}`,{
+                method:"GET",
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            })
+            const resdata = await res.json()
+            console.log(resdata)
+            setOrderfound(resdata)
+        }catch(err){
+            console.log(err)
+        }
+        
 
     }
 
@@ -279,21 +328,26 @@ const EcomUserState = ({children}) => {
     }
 
     const findproduct = async(productid) =>{
-        console.log(productid)
+        try{
+            console.log(productid)
 
-        const pro = await removeDuplicates(productid)
-        console.log(pro)
-        const res = await fetch(`http://0.0.0.0:8000/user/productfind`,{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify({products:pro})
-        })
-
-        const resdata = await res.json()
-
-        setDetailedProduct(resdata)
+            const pro = await removeDuplicates(productid)
+            console.log(pro)
+            const res = await fetch(`http://0.0.0.0:8000/user/productfind`,{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({products:pro})
+            })
+    
+            const resdata = await res.json()
+    
+            setDetailedProduct(resdata)
+        }catch(err){
+            console.log(err)
+        }
+        
     }
 
     const value = {products,setProducts,getnewProducts,newProduct,cartProduct,setCartProduct,addtocart,featured,getfeatured,getProducts,allproducts,allProduct,settingfeaturedproducts,cartProducts,cartIt,removefromcart,logged,user,setUser,setLogged,addressform,setAddressform,updatingAddress,userdetails,viewdetails,handlePayment,showcaseProduct,productshowcase,orderfound,findorders ,orderdetail,setOrderdetail,findproduct,detailedproduct,setDetailedProduct }

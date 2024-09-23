@@ -7,12 +7,16 @@ const  config = require('../config/config')
 
 const creatingOrder = async(req,res)=>{
     const { amount, currency, receipt , userId, products } = req.body;
+    console.log(amount+" "+currency+" "+receipt+" "+userId+" "+products)
+    
 
     try{
+        console.log(config.rzId)
+        console.log(config.rzsecret)
 
         const rzpay = new razorpay({
-            key_id:config.rzId,
-            key_secret:config.rzsecret
+            key_id:process.env.RZID,
+            key_secret:process.env.RZSECRET
         })
 
         const options = {
@@ -22,6 +26,7 @@ const creatingOrder = async(req,res)=>{
         }
 
         const order = await rzpay.orders.create(options)
+        console.log(order)
 
         const paymentDetails = new orders({
             orderId:order.id,
@@ -37,7 +42,7 @@ const creatingOrder = async(req,res)=>{
         
 
     }catch(err){
-        console.log("Error"+err)
+        console.log("Error:->"+err.message)
     }
 }
 

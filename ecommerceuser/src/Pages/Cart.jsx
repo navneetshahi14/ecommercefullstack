@@ -101,12 +101,12 @@ const Cart = () => {
                         <div className="bg-[#fff] rounded-xl p-8 min-w-[40%] h-auto flex flex-col">
                             <h2 className="text-[2rem] font-bold">Order-Information</h2>
                             <div className='w-[100%]  ' >
-                                <input type="text" value={localStorage.getItem("name").substring(1,lengthname-1)} readOnly />
-                                <input type="text" value={userdetails?.PhoneNo} readOnly />
-                                <input type="text" value={userdetails?.address} readOnly />
-                                <input type="text" value={userdetails?.City} readOnly />
-                                <input type="text" value={userdetails?.country} readOnly />
-                                <input type="text" value={userdetails?.postal} readOnly /> 
+                                <input type="text" placeholder='enter your name' value={localStorage.getItem("name").substring(1,lengthname-1)} readOnly />
+                                <input type="text" placeholder='enter your phoneNo ' value={userdetails?.PhoneNo} readOnly />
+                                <input type="text" placeholder='enter your address ' value={userdetails?.address} readOnly />
+                                <input type="text" placeholder='enter your city ' value={userdetails?.City} readOnly />
+                                <input type="text" placeholder='enter your country ' value={userdetails?.country} readOnly />
+                                <input type="text" placeholder='enter your postal ' value={userdetails?.postal} readOnly /> 
                                 <button className='bg-purple-600 p-2 px-4 rounded-sm shadow-md mt-4 text-white' onClick={()=>setAddressform(true)}>Edit Details</button>
                             </div>
                             <div className="my-2 py-2 ">

@@ -305,33 +305,45 @@ const Ecomstate = ({children}) => {
     }
 
     const getfeatured = async () =>{
-        const config={
-            headers:{
-                "Content-Type":"application/json",
-                Authorization: `Bearer ${user.token}`
-            }
-        }
+        try{
 
-        const {data} = await axios.get('/admin/getFeatured',config)
-        
-        if(data.msg === "No product featured"){
-            console.log(data.msg)
+            const config={
+                headers:{
+                    "Content-Type":"application/json",
+                    Authorization: `Bearer ${user.token}`
+                }
+            }
+    
+            const {data} = await axios.get('/admin/getFeatured',config)
+            
+            if(data.msg === "No product featured"){
+                console.log(data.msg)
+            }
+            setnewfeaturedproducts(data.productid)
+            setnewfeatured(data.previd)
+
+        }catch(err){
+            console.log(err)
         }
-        setnewfeaturedproducts(data.productid)
-        setnewfeatured(data.previd)
+        
     }
 
     const getAllOrders = async() =>{
-        const config={
-            headers:{
-                "Content-Type":"application/json",
-                Authorization: `Bearer ${user.token}`
+        try{
+            const config={
+                headers:{
+                    "Content-Type":"application/json",
+                    Authorization: `Bearer ${user.token}`
+                }
             }
+    
+            const {data} = await axios.get('/admin/Getorders',config)
+    
+            setorders(data)
+        }catch(err){
+            console.log(err)
         }
-
-        const {data} = await axios.get('/admin/Getorders',config)
-
-        setorders(data)
+        
     }
 
     

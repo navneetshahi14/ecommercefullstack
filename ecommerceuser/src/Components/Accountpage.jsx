@@ -5,13 +5,12 @@ import DetailedOrder from './DetailedOrder'
 
 const Accountpage = () => {
 
-    const [userdet,setUserdet] = useState(JSON.parse(localStorage.getItem('user')))
+    const [userdet,setUserdet] = useState(JSON.parse(localStorage.getItem('user')) || {})
     const [listProduct,setListproduct] = useState([])
     const {viewdetails,userdetails,orderfound,findorders,orderdetail,setOrderdetail,findproduct} = useContext(EcomuserContext)
 
     useEffect(()=>{
 
-        
         viewdetails()
         findorders()
         

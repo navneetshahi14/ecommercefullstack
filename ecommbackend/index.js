@@ -6,8 +6,8 @@ const bodyparser = require('body-parser')
 const cors = require('cors')
 const Port = 8000 || process.env.PORT
 
-db()
 dotenv.config()
+db()
 
 app.use(cors())
 app.use(bodyparser.json())
@@ -25,8 +25,6 @@ app.use('/user',UserRouter)
 
 const payment = require('./routes/paymentroutes')
 app.use('/payment',payment)
-
-
 
 
 app.listen(Port,()=>console.log("Server Started"+Port))

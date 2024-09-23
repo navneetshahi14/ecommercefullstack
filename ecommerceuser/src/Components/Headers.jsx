@@ -16,7 +16,10 @@ const Headers = () => {
                     <nav className='flex gap-4'>
                         <Link className={navclass} to={'/'}>Home</Link>
                         <Link className={navclass} to={'/AllProduct'}>All Product</Link>
-                        <Link className={navclass} to={'/Account'}>Account</Link>
+                        {
+                            logged && 
+                            <Link className={navclass} to={'/Account'}>Account</Link>
+                        }
                         {
                             (logged === true)?<Link className={navclass} to={'/Cart'}>Cart({cartProduct.length})</Link>:<Link to={'/login'} className={navclass}>Login</Link>
                         }

@@ -15,7 +15,6 @@ const FeaturedPage = () => {
     },[])
 
     const handleFeatured =()=>{
-        console.log(newfeatured)
         let previd = newfeatured
 
         setFeatured(previd || null,currentid)
