@@ -37,4 +37,4 @@ app.use('/payment',payment)
 app.get('/',(req,res)=>{res.send("server started")})
 
 
-app.listen(8000,()=>console.log("Server Started"))
+app.listen(process.env.PORT,()=>console.log("Server Started"))
