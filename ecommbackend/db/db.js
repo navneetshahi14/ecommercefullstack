@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 
 const mongooseConnect=()=>{
     console.log(process.env.MONGOOSEURI)
-    mongoose.connect(process.env.MONGOOSEURI)
+    mongoose.connect(process.env.MONGOOSEURI,{ useNewUrlParser: true, useUnifiedTopology: true })
     let db = mongoose.connection
     db.on('error',()=>console.log("Some Error in connecting database"))
     db.once('open',()=>console.log("Database connected"))
