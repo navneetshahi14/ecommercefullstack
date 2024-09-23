@@ -41,7 +41,7 @@ const Ecomstate = ({children}) => {
 
     useEffect(()=>{
         if(logged){
-            if(window.location.href === "http://localhost:3000/login"||window.location.href === "http://localhost:3000/register"||window.location.href === "http://localhost:3000/otpcheck"){
+            if(window.location.href === "https://ecommerce-admin-smoky-phi.vercel.app/login"||window.location.href === "https://ecommerce-admin-smoky-phi.vercel.app/register"||window.location.href === "https://ecommerce-admin-smoky-phi.vercel.app/otpcheck"){
                 navigate('/')
             }
         }
@@ -51,7 +51,7 @@ const Ecomstate = ({children}) => {
     const registerUser = async(name,email,password,type)=>{
         try{
 
-            const res = await fetch('http://0.0.0.0:8000/auth/register',{
+            const res = await fetch('https://ecommerce-backend-six-theta.vercel.app/auth/register',{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"
@@ -76,7 +76,7 @@ const Ecomstate = ({children}) => {
     const checkotp = async(otp,email)=>{
         try{
 
-            const res = await fetch("http://0.0.0.0:8000/auth/checkotp",{
+            const res = await fetch("https://ecommerce-backend-six-theta.vercel.app/auth/checkotp",{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"
@@ -102,7 +102,7 @@ const Ecomstate = ({children}) => {
     const authlogin = async(email,password)=>{
         try{
             
-            const res = await fetch("http://0.0.0.0:8000/auth/login",{
+            const res = await fetch("https://ecommerce-backend-six-theta.vercel.app/auth/login",{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"
@@ -371,7 +371,7 @@ const Ecomstate = ({children}) => {
 
         const pro = await removeDuplicates(productid)
         
-        const res = await fetch(`http://0.0.0.0:8000/user/productfind`,{
+        const res = await fetch(`https://ecommerce-backend-six-theta.vercel.app/user/productfind`,{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"

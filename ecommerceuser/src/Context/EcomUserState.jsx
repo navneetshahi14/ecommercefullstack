@@ -22,7 +22,7 @@ const EcomUserState = ({children}) => {
 
 
     const handlePayment =async(userId,receipt,amount)=>{
-        const {data} = await axios.post('http://0.0.0.0:8000/payment/createOrder',{
+        const {data} = await axios.post('https://ecommerce-backend-six-theta.vercel.app/payment/createOrder',{
             amount:amount,
             currency:"INR",
             receipt:receipt,
@@ -38,7 +38,7 @@ const EcomUserState = ({children}) => {
             description:"Test transaction",
             order_id:data.id,
             handler:async (response) =>{
-                const verifyUrl = 'http://0.0.0.0:8000/payment/verifyPayment'
+                const verifyUrl = 'https://ecommerce-backend-six-theta.vercel.app/payment/verifyPayment'
 
                 const verificationData={
                     razorpay_order_id:response.razorpay_order_id,
@@ -94,7 +94,7 @@ const EcomUserState = ({children}) => {
 
     const getProducts = async()=>{
         try{
-            const data = await fetch('http://0.0.0.0:8000/user/allProduct',{
+            const data = await fetch('https://ecommerce-backend-six-theta.vercel.app/user/allProduct',{
                 method:"GET",
                 headers:{
                     "Content-Type":"application."
@@ -113,7 +113,7 @@ const EcomUserState = ({children}) => {
 
     const getnewProducts = async()=>{
         try{
-            const data = await fetch("http://0.0.0.0:8000/user/newProduct",{
+            const data = await fetch("https://ecommerce-backend-six-theta.vercel.app/user/newProduct",{
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json"
@@ -133,7 +133,7 @@ const EcomUserState = ({children}) => {
 
     const allProduct = async() =>{
         try{
-            const data = await fetch("http://0.0.0.0:8000/user/allProduct",{
+            const data = await fetch("https://ecommerce-backend-six-theta.vercel.app/user/allProduct",{
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json"
@@ -150,7 +150,7 @@ const EcomUserState = ({children}) => {
 
     const getfeatured = async()=>{
         try{
-            const data = await fetch("http://0.0.0.0:8000/user/getFeatured",{
+            const data = await fetch("https://ecommerce-backend-six-theta.vercel.app/user/getFeatured",{
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json"
@@ -171,7 +171,7 @@ const EcomUserState = ({children}) => {
 
     const cartProducts = async() =>{
         try{
-            const data = await fetch('http://0.0.0.0:8000/user/cartproduct',{
+            const data = await fetch('https://ecommerce-backend-six-theta.vercel.app/user/cartproduct',{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"
@@ -232,7 +232,7 @@ const EcomUserState = ({children}) => {
         
         try{
 
-            const data = await fetch('http://0.0.0.0:8000/user/addingaddress',{
+            const data = await fetch('https://ecommerce-backend-six-theta.vercel.app/user/addingaddress',{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"
@@ -264,7 +264,7 @@ const EcomUserState = ({children}) => {
             let length = localStorage.getItem('userId').length
             let userid = localStorage.getItem('userId').substring(1,length-1)
     
-            const res = await fetch(`http://0.0.0.0:8000/user/viewsdetails/${usersId}`,{
+            const res = await fetch(`https://ecommerce-backend-six-theta.vercel.app/user/viewsdetails/${usersId}`,{
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json"
@@ -286,7 +286,7 @@ const EcomUserState = ({children}) => {
 
     const productshowcase = async(productid) =>{
         try{
-            const res = await fetch(`http://0.0.0.0:8000/user/product/${productid}`,{
+            const res = await fetch(`https://ecommerce-backend-six-theta.vercel.app/user/product/${productid}`,{
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json"
@@ -306,7 +306,7 @@ const EcomUserState = ({children}) => {
 
     const findorders = async() =>{
         try{
-            const res = await fetch(`http://0.0.0.0:8000/user/order/${usersId}`,{
+            const res = await fetch(`https://ecommerce-backend-six-theta.vercel.app/user/order/${usersId}`,{
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json"
@@ -333,7 +333,7 @@ const EcomUserState = ({children}) => {
 
             const pro = await removeDuplicates(productid)
             console.log(pro)
-            const res = await fetch(`http://0.0.0.0:8000/user/productfind`,{
+            const res = await fetch(`https://ecommerce-backend-six-theta.vercel.app/user/productfind`,{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"
