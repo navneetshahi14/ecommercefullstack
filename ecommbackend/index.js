@@ -20,6 +20,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions))
+app.options('*',cors())
 app.use(bodyparser.json())
 app.use(express.json())
 
