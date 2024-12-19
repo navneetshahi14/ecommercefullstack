@@ -51,7 +51,7 @@ const Ecomstate = ({children}) => {
     const registerUser = async(name,email,password,type)=>{
         try{
 
-            const res = await fetch('https://vercel.com/navneet-shahis-projects-727aeff0/ecommercefullstack/6M542MdL4orWdEdcwTp6Ta58UWdR/auth/register',{
+            const res = await fetch('https://ecommercefullstack-cck3abo4z-navneet-shahis-projects-727aeff0.vercel.app/auth/register',{
                 method:"POST",
                 
                 headers:{
@@ -77,7 +77,7 @@ const Ecomstate = ({children}) => {
     const checkotp = async(otp,email)=>{
         try{
 
-            const res = await fetch("https://vercel.com/navneet-shahis-projects-727aeff0/ecommercefullstack/6M542MdL4orWdEdcwTp6Ta58UWdR/auth/checkotp",{
+            const res = await fetch("https://ecommercefullstack-cck3abo4z-navneet-shahis-projects-727aeff0.vercel.app/auth/checkotp",{
                 method:"POST",
                 
                 headers:{
@@ -104,7 +104,7 @@ const Ecomstate = ({children}) => {
     const authlogin = async(email,password)=>{
         try{
             
-            const res = await fetch("https://vercel.com/navneet-shahis-projects-727aeff0/ecommercefullstack/6M542MdL4orWdEdcwTp6Ta58UWdR/auth/login",{
+            const res = await fetch("https://ecommercefullstack-cck3abo4z-navneet-shahis-projects-727aeff0.vercel.app/auth/login",{
                 method:"POST",
                 
                 headers:{
@@ -143,7 +143,7 @@ const Ecomstate = ({children}) => {
             images:images
         })
 
-        const {data} = await axios.post('https://vercel.com/navneet-shahis-projects-727aeff0/ecommercefullstack/6M542MdL4orWdEdcwTp6Ta58UWdR/admin/addproduct',data1,config)
+        const {data} = await axios.post('https://ecommercefullstack-cck3abo4z-navneet-shahis-projects-727aeff0.vercel.app/admin/addproduct',data1,config)
 
         return data
     }
@@ -156,7 +156,7 @@ const Ecomstate = ({children}) => {
                 }
             }
         
-            await axios.get('https://vercel.com/navneet-shahis-projects-727aeff0/ecommercefullstack/6M542MdL4orWdEdcwTp6Ta58UWdR/admin/allproduct',config).then(response=>{
+            await axios.get('https://ecommercefullstack-cck3abo4z-navneet-shahis-projects-727aeff0.vercel.app/admin/allproduct',config).then(response=>{
                 console.log("Product fetched:-> ",response.data)
                 setAllproducts(response.data)
     
@@ -189,7 +189,7 @@ const Ecomstate = ({children}) => {
                 property:productproperty
             }
 
-            const {data} = await axios.post('https://vercel.com/navneet-shahis-projects-727aeff0/ecommercefullstack/6M542MdL4orWdEdcwTp6Ta58UWdR/admin/updateproduct',productup,config)
+            const {data} = await axios.post('https://ecommercefullstack-cck3abo4z-navneet-shahis-projects-727aeff0.vercel.app/admin/updateproduct',productup,config)
 
             return data
 
@@ -208,7 +208,7 @@ const Ecomstate = ({children}) => {
                 }
             }
 
-            const {data} = await axios.post('https://vercel.com/navneet-shahis-projects-727aeff0/ecommercefullstack/6M542MdL4orWdEdcwTp6Ta58UWdR/admin/deleteproduct',{id},config)
+            const {data} = await axios.post('https://ecommercefullstack-cck3abo4z-navneet-shahis-projects-727aeff0.vercel.app/admin/deleteproduct',{id},config)
             return data
             
         } catch (error) {
@@ -226,7 +226,7 @@ const Ecomstate = ({children}) => {
                 }
             }
 
-            const {data} = await axios.post('https://vercel.com/navneet-shahis-projects-727aeff0/ecommercefullstack/6M542MdL4orWdEdcwTp6Ta58UWdR/admin/categoryCreation',{catename:name,parent:parentCate,properties:properties.map(p=>({name:p.name,values:p.values.split(',')}))},config)
+            const {data} = await axios.post('https://ecommercefullstack-cck3abo4z-navneet-shahis-projects-727aeff0.vercel.app/admin/categoryCreation',{catename:name,parent:parentCate,properties:properties.map(p=>({name:p.name,values:p.values.split(',')}))},config)
 
             return data
 
@@ -245,7 +245,7 @@ const Ecomstate = ({children}) => {
                 }
             }
     
-            const {data}= await axios.get('https://vercel.com/navneet-shahis-projects-727aeff0/ecommercefullstack/6M542MdL4orWdEdcwTp6Ta58UWdR/admin/categoryshow',config)
+            const {data}= await axios.get('https://ecommercefullstack-cck3abo4z-navneet-shahis-projects-727aeff0.vercel.app/admin/categoryshow',config)
     
             setAllcate(data)
 
@@ -263,7 +263,7 @@ const Ecomstate = ({children}) => {
                 }
             }
     
-            const {data} = await axios.post('https://vercel.com/navneet-shahis-projects-727aeff0/ecommercefullstack/6M542MdL4orWdEdcwTp6Ta58UWdR/admin/categoryUpdate',{cateId:id,name,parent,properties:properties.map(p=>({name:p.name,values:p.values.split(',')}))},config)
+            const {data} = await axios.post('https://ecommercefullstack-cck3abo4z-navneet-shahis-projects-727aeff0.vercel.app/admin/categoryUpdate',{cateId:id,name,parent,properties:properties.map(p=>({name:p.name,values:p.values.split(',')}))},config)
     
             return data
 
@@ -281,7 +281,7 @@ const Ecomstate = ({children}) => {
                 }
             }
     
-            const {data} = await axios.post('https://vercel.com/navneet-shahis-projects-727aeff0/ecommercefullstack/6M542MdL4orWdEdcwTp6Ta58UWdR/admin/categorydelete',{id:id},config)
+            const {data} = await axios.post('https://ecommercefullstack-cck3abo4z-navneet-shahis-projects-727aeff0.vercel.app/admin/categorydelete',{id:id},config)
     
             return data
         }catch(err){
@@ -302,7 +302,7 @@ const Ecomstate = ({children}) => {
             currentid:id
         }
 
-        const {data} = await axios.post('https://vercel.com/navneet-shahis-projects-727aeff0/ecommercefullstack/6M542MdL4orWdEdcwTp6Ta58UWdR/admin/setFeatured',body,config)
+        const {data} = await axios.post('https://ecommercefullstack-cck3abo4z-navneet-shahis-projects-727aeff0.vercel.app/admin/setFeatured',body,config)
 
         return data
     }
@@ -317,7 +317,7 @@ const Ecomstate = ({children}) => {
                 }
             }
     
-            const {data} = await axios.get('https://vercel.com/navneet-shahis-projects-727aeff0/ecommercefullstack/6M542MdL4orWdEdcwTp6Ta58UWdR/admin/getFeatured',config)
+            const {data} = await axios.get('https://ecommercefullstack-cck3abo4z-navneet-shahis-projects-727aeff0.vercel.app/admin/getFeatured',config)
             
             if(data.msg === "No product featured"){
                 console.log(data.msg)
@@ -340,7 +340,7 @@ const Ecomstate = ({children}) => {
                 }
             }
     
-            const {data} = await axios.get('https://vercel.com/navneet-shahis-projects-727aeff0/ecommercefullstack/6M542MdL4orWdEdcwTp6Ta58UWdR/admin/Getorders',config)
+            const {data} = await axios.get('https://ecommercefullstack-cck3abo4z-navneet-shahis-projects-727aeff0.vercel.app/admin/Getorders',config)
     
             setorders(data)
         }catch(err){
@@ -359,7 +359,7 @@ const Ecomstate = ({children}) => {
             }
         }
 
-        const {data} = await axios.get('https://vercel.com/navneet-shahis-projects-727aeff0/ecommercefullstack/6M542MdL4orWdEdcwTp6Ta58UWdR/admin/alluser',config)
+        const {data} = await axios.get('https://ecommercefullstack-cck3abo4z-navneet-shahis-projects-727aeff0.vercel.app/admin/alluser',config)
         console.log(data)
 
         setallUser(data)
@@ -374,7 +374,7 @@ const Ecomstate = ({children}) => {
 
         const pro = await removeDuplicates(productid)
         
-        const res = await fetch(`https://vercel.com/navneet-shahis-projects-727aeff0/ecommercefullstack/6M542MdL4orWdEdcwTp6Ta58UWdR/user/productfind`,{
+        const res = await fetch(`https://ecommercefullstack-cck3abo4z-navneet-shahis-projects-727aeff0.vercel.app/user/productfind`,{
             method:"POST",
             
             headers:{
