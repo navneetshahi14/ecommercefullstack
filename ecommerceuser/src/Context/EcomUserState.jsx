@@ -22,41 +22,46 @@ const EcomUserState = ({children}) => {
 
 
     const handlePayment =async(userId,receipt,amount)=>{
-        const {data} = await axios.post('https://ecommerce-backend-six-theta.vercel.app/payment/createOrder',{
-            amount:amount,
-            currency:"INR",
-            receipt:receipt,
-            userId,
-            products:cartProduct
-        })
+        try{
 
-        const options ={
-            key:"rzp_test_rVgBYp3GHn7YId",
-            amount:data.amount,
-            currency:data.currency,
-            name:"Navneet Ecommerce",
-            description:"Test transaction",
-            order_id:data.id,
-            handler:async (response) =>{
-                const verifyUrl = 'https://ecommerce-backend-six-theta.vercel.app/payment/verifyPayment'
-
-                const verificationData={
-                    razorpay_order_id:response.razorpay_order_id,
-                    razorpay_payment_id:response.razorpay_payment_id,
-                    razorpay_signature:response.razorpay_signature
+            const {data} = await axios.post('http://localhost:8000/payment/createOrder',{
+                amount:amount,
+                currency:"INR",
+                receipt:receipt,
+                userId,
+                products:cartProduct
+            })
+    
+            const options ={
+                key:"rzp_test_ABHdMVyARnFrif",
+                amount:data.amount,
+                currency:data.currency,
+                name:"Navneet Ecommerce",
+                description:"Test transaction",
+                order_id:data.id,
+                handler:async (response) =>{
+                    const verifyUrl = 'http://localhost:8000/payment/verifyPayment'
+    
+                    const verificationData={
+                        razorpay_order_id:response.razorpay_order_id,
+                        razorpay_payment_id:response.razorpay_payment_id,
+                        razorpay_signature:response.razorpay_signature
+                    }
+    
+                    const result = await axios.post(verifyUrl,verificationData)
+                    alert(result.data.status)
+    
+                },
+                theme:{
+                    color:"#3399cc"
                 }
-
-                const result = await axios.post(verifyUrl,verificationData)
-                alert(result.data.status)
-
-            },
-            theme:{
-                color:"#3399cc"
             }
+    
+            const rzp = new window.Razorpay(options)
+            rzp.open()
+        }catch(err){
+            console.log(err.message)
         }
-
-        const rzp = new window.Razorpay(options)
-        rzp.open()
     }
 
 
@@ -94,9 +99,9 @@ const EcomUserState = ({children}) => {
 
     const getProducts = async()=>{
         try{
-            const data = await fetch('https://ecommerce-backend-six-theta.vercel.app/user/allProduct',{
+            const data = await fetch('http://localhost:8000/user/allProduct',{
                 method:"GET",
-                mode: 'no-cors',
+                
                 headers:{
                     "Content-Type":"application."
                 }
@@ -114,9 +119,9 @@ const EcomUserState = ({children}) => {
 
     const getnewProducts = async()=>{
         try{
-            const data = await fetch("https://ecommerce-backend-six-theta.vercel.app/user/newProduct",{
+            const data = await fetch("http://localhost:8000/user/newProduct",{
                 method:"GET",
-                mode: 'no-cors',
+                
                 headers:{
                     "Content-Type":"application/json"
                 }
@@ -135,9 +140,9 @@ const EcomUserState = ({children}) => {
 
     const allProduct = async() =>{
         try{
-            const data = await fetch("https://ecommerce-backend-six-theta.vercel.app/user/allProduct",{
+            const data = await fetch("http://localhost:8000/user/allProduct",{
                 method:"GET",
-                mode: 'no-cors',
+                
                 headers:{
                     "Content-Type":"application/json"
                 }
@@ -153,9 +158,8 @@ const EcomUserState = ({children}) => {
 
     const getfeatured = async()=>{
         try{
-            const data = await fetch("https://ecommerce-backend-six-theta.vercel.app/user/getFeatured",{
+            const data = await fetch("http://localhost:8000/user/getFeatured",{
                 method:"GET",
-                mode: 'no-cors',
                 headers:{
                     "Content-Type":"application/json"
                 }
@@ -164,7 +168,6 @@ const EcomUserState = ({children}) => {
             const resdata = await data.json()
             console.log(resdata)
             console.log(typeof(resdata.productid))
-    
             return resdata
         }catch(err){
             console.log(err)
@@ -175,9 +178,9 @@ const EcomUserState = ({children}) => {
 
     const cartProducts = async() =>{
         try{
-            const data = await fetch('https://ecommerce-backend-six-theta.vercel.app/user/cartproduct',{
+            const data = await fetch('http://localhost:8000/user/cartproduct',{
                 method:"POST",
-                mode: 'no-cors',
+                
                 headers:{
                     "Content-Type":"application/json"
                 },
@@ -196,7 +199,6 @@ const EcomUserState = ({children}) => {
     const settingfeaturedproducts = async()=>{
         try{
             const all =  await allProduct()
-            console.log(all)
             setAllproducts(all)
             const produc = await getfeatured()
             console.log(produc)
@@ -237,9 +239,9 @@ const EcomUserState = ({children}) => {
         
         try{
 
-            const data = await fetch('https://ecommerce-backend-six-theta.vercel.app/user/addingaddress',{
+            const data = await fetch('http://localhost:8000/user/addingaddress',{
                 method:"POST",
-                mode: 'no-cors',
+                
                 headers:{
                     "Content-Type":"application/json"
                 },
@@ -270,9 +272,9 @@ const EcomUserState = ({children}) => {
             let length = localStorage.getItem('userId').length
             let userid = localStorage.getItem('userId').substring(1,length-1)
     
-            const res = await fetch(`https://ecommerce-backend-six-theta.vercel.app/user/viewsdetails/${usersId}`,{
+            const res = await fetch(`http://localhost:8000/user/viewsdetails/${usersId}`,{
                 method:"GET",
-                mode: 'no-cors',
+                
                 headers:{
                     "Content-Type":"application/json"
                 }
@@ -293,9 +295,9 @@ const EcomUserState = ({children}) => {
 
     const productshowcase = async(productid) =>{
         try{
-            const res = await fetch(`https://ecommerce-backend-six-theta.vercel.app/user/product/${productid}`,{
+            const res = await fetch(`http://localhost:8000/user/product/${productid}`,{
                 method:"GET",
-                mode: 'no-cors',
+                
                 headers:{
                     "Content-Type":"application/json"
                 }
@@ -314,9 +316,9 @@ const EcomUserState = ({children}) => {
 
     const findorders = async() =>{
         try{
-            const res = await fetch(`https://ecommerce-backend-six-theta.vercel.app/user/order/${usersId}`,{
+            const res = await fetch(`http://localhost:8000/user/order/${usersId}`,{
                 method:"GET",
-                mode: 'no-cors',
+                
                 headers:{
                     "Content-Type":"application/json"
                 }
@@ -342,9 +344,9 @@ const EcomUserState = ({children}) => {
 
             const pro = await removeDuplicates(productid)
             console.log(pro)
-            const res = await fetch(`https://ecommerce-backend-six-theta.vercel.app/user/productfind`,{
+            const res = await fetch(`http://localhost:8000/user/productfind`,{
                 method:"POST",
-                mode: 'no-cors',
+                
                 headers:{
                     "Content-Type":"application/json"
                 },

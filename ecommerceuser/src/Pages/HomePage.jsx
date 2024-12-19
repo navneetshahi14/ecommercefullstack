@@ -9,7 +9,7 @@ const HomePage = () => {
 
   return (
     <>
-        <div className='w-full h-screen'>
+        <div className='w-full min-h-screen h-auto '>
             <Headers/>
             <Features  />
             <NewProduct />

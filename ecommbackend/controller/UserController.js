@@ -41,8 +41,7 @@ const newProducts = async(req,res)=>{
 const cartProducts = async(req,res) =>{
     try {
         
-        const {ids} = req.body
-        
+        const {ids} = req.body       
 
         res.json(await product.find({_id:ids}))
 
@@ -56,7 +55,6 @@ const getFeatured = async(req,res)=>{
     try{
 
         const featuredpro = await featured.findOne()
-        // console.log(featuredpro)
 
         res.status(200).json({productid:featuredpro.productid})
 
@@ -66,13 +64,13 @@ const getFeatured = async(req,res)=>{
 }
 
 
-const orderedProduct = async(req,res) =>{
-    try {
-        // const {name,email,city,postal}
-    } catch (error) {
+// const orderedProduct = async(req,res) =>{
+//     try {
+//         // const {name,email,city,postal}
+//     } catch (error) {
         
-    }
-}
+//     }
+// }
 
 
 const addingaddress = async(req,res) =>{
@@ -112,9 +110,6 @@ const addingaddress = async(req,res) =>{
             const newdetailsadded = await newdetails.save()
 
         }
-
-        
-
     }catch(err){
         console.log(err.message)
     }
@@ -163,8 +158,6 @@ const findOrder = async(req,res) =>{
 const findproduct = async(req,res) =>{
     const {products} = req.body
     const allpro = []
-    console.log(products)
-
     try{
         
         for(let i=0;i<products.length;i++){

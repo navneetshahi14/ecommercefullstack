@@ -12,7 +12,7 @@ const Headers = () => {
         <header className='w-full h-auto bg-[#222] text-white p-1'>
             <div className="max-w-[1200px] mx-auto my-0 px-[20px] py-0 ">
                 <div className=" flex justify-between py-[20px] px-0">
-                    <Link to={'/'} >Ecommerce</Link>
+                    <Link to={'/'} >Gully Mart</Link>
                     <nav className='flex gap-4'>
                         <Link className={navclass} to={'/'}>Home</Link>
                         <Link className={navclass} to={'/AllProduct'}>All Product</Link>

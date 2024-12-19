@@ -23,7 +23,7 @@ const Navbar = () => {
             <i className="fa-solid fa-xmark absolute right-0 top-0 cursor-pointer mx-2 mt-1 mr-4 text-xl md:hidden" onClick={()=>setShownav(false)}></i>
             <Link className='flex gap-2 items-center mb-4 mr-4'>
                 <i className="fa-solid fa-store text-primary md:text-blue-400"></i>
-                <span className="">EcommerceAdmin</span>
+                <span className="">GullyMart(seller)</span>
             </Link>
             <nav className='flex flex-col gap-2'>
                 <Link to={"/"} onClick={()=>setShownav(false)} className={(pathname==="/")?activelink:inActivelink} >
