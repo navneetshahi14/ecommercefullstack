@@ -24,7 +24,7 @@ const EcomUserState = ({children}) => {
     const handlePayment =async(userId,receipt,amount)=>{
         try{
 
-            const {data} = await axios.post('http://localhost:8000/payment/createOrder',{
+            const {data} = await axios.post('/payment/createOrder',{
                 amount:amount,
                 currency:"INR",
                 receipt:receipt,
@@ -40,7 +40,7 @@ const EcomUserState = ({children}) => {
                 description:"Test transaction",
                 order_id:data.id,
                 handler:async (response) =>{
-                    const verifyUrl = 'http://localhost:8000/payment/verifyPayment'
+                    const verifyUrl = '/payment/verifyPayment'
     
                     const verificationData={
                         razorpay_order_id:response.razorpay_order_id,
@@ -99,7 +99,7 @@ const EcomUserState = ({children}) => {
 
     const getProducts = async()=>{
         try{
-            const data = await fetch('http://localhost:8000/user/allProduct',{
+            const data = await fetch('/user/allProduct',{
                 method:"GET",
                 
                 headers:{
@@ -119,7 +119,7 @@ const EcomUserState = ({children}) => {
 
     const getnewProducts = async()=>{
         try{
-            const data = await fetch("http://localhost:8000/user/newProduct",{
+            const data = await fetch("/user/newProduct",{
                 method:"GET",
                 
                 headers:{
@@ -140,7 +140,7 @@ const EcomUserState = ({children}) => {
 
     const allProduct = async() =>{
         try{
-            const data = await fetch("http://localhost:8000/user/allProduct",{
+            const data = await fetch("/user/allProduct",{
                 method:"GET",
                 
                 headers:{
@@ -158,7 +158,7 @@ const EcomUserState = ({children}) => {
 
     const getfeatured = async()=>{
         try{
-            const data = await fetch("http://localhost:8000/user/getFeatured",{
+            const data = await fetch("/user/getFeatured",{
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json"
@@ -178,7 +178,7 @@ const EcomUserState = ({children}) => {
 
     const cartProducts = async() =>{
         try{
-            const data = await fetch('http://localhost:8000/user/cartproduct',{
+            const data = await fetch('/user/cartproduct',{
                 method:"POST",
                 
                 headers:{
@@ -239,7 +239,7 @@ const EcomUserState = ({children}) => {
         
         try{
 
-            const data = await fetch('http://localhost:8000/user/addingaddress',{
+            const data = await fetch('/user/addingaddress',{
                 method:"POST",
                 
                 headers:{
@@ -272,7 +272,7 @@ const EcomUserState = ({children}) => {
             let length = localStorage.getItem('userId').length
             let userid = localStorage.getItem('userId').substring(1,length-1)
     
-            const res = await fetch(`http://localhost:8000/user/viewsdetails/${usersId}`,{
+            const res = await fetch(`/user/viewsdetails/${usersId}`,{
                 method:"GET",
                 
                 headers:{
@@ -295,7 +295,7 @@ const EcomUserState = ({children}) => {
 
     const productshowcase = async(productid) =>{
         try{
-            const res = await fetch(`http://localhost:8000/user/product/${productid}`,{
+            const res = await fetch(`/user/product/${productid}`,{
                 method:"GET",
                 
                 headers:{
@@ -316,7 +316,7 @@ const EcomUserState = ({children}) => {
 
     const findorders = async() =>{
         try{
-            const res = await fetch(`http://localhost:8000/user/order/${usersId}`,{
+            const res = await fetch(`/user/order/${usersId}`,{
                 method:"GET",
                 
                 headers:{
@@ -344,7 +344,7 @@ const EcomUserState = ({children}) => {
 
             const pro = await removeDuplicates(productid)
             console.log(pro)
-            const res = await fetch(`http://localhost:8000/user/productfind`,{
+            const res = await fetch(`/user/productfind`,{
                 method:"POST",
                 
                 headers:{
