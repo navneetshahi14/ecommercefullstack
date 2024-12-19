@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.15ac4d98.css",
+    "main.js": "/static/js/main.3f6a57e8.js",
+    "static/media/macbook.png": "/static/media/macbook.7e03d3f43b6e5d61ebc0.png",
+    "index.html": "/index.html",
+    "main.15ac4d98.css.map": "/static/css/main.15ac4d98.css.map",
+    "main.3f6a57e8.js.map": "/static/js/main.3f6a57e8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.15ac4d98.css",
+    "static/js/main.3f6a57e8.js"
+  ]
+}
