@@ -25,7 +25,7 @@ app.options('*',cors())
 app.use(bodyparser.json())
 app.use(express.json())
 app.use(express.static(path.resolve(__dirname,"build")))
-app.use(express.static(path.resolve(__dirname,"build2")))
+// app.use(express.static(path.resolve(__dirname,"build2")))
 
 const Authroute = require('./routes/authRoutes')
 app.use('/auth',Authroute)
