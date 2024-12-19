@@ -41,7 +41,7 @@ const Ecomstate = ({children}) => {
 
     useEffect(()=>{
         if(logged){
-            if(window.location.href === "https://ecommerce-admin-smoky-phi.vercel.app/login"||window.location.href === "https://ecommerce-admin-smoky-phi.vercel.app/register"||window.location.href === "https://ecommerce-admin-smoky-phi.vercel.app/otpcheck"){
+            if(window.location.href === "https://ecommercefullstack-kk8s.vercel.app/login"||window.location.href === "https://ecommercefullstack-kk8s.vercel.app/register"||window.location.href === "https://ecommercefullstack-kk8s.vercel.app/otpcheck"){
                 navigate('/')
             }
         }
