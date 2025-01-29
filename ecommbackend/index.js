@@ -8,20 +8,8 @@ const path = require('path')
 const cors = require('cors')
 db()
 
-// const allowedOrigins = ['https://ecommercefullstack-b4bp-ad770ivj3.vercel.app/', 'https://ecommercefullstack-kk8s.vercel.app'];
-
-// const corsOptions = {
-//   origin: (origin, callback) => {
-//     if (allowedOrigins.includes(origin) || !origin) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS'));
-//     }
-//   },
-// };
 
 app.use(cors())
-app.options('*',cors())
 app.use(bodyparser.json())
 
 const Authroute = require('./routes/authRoutes')
@@ -36,7 +24,7 @@ app.use('/user',UserRouter)
 const payment = require('./routes/paymentroutes')
 app.use('/payment',payment)
 
-app.use('/',(req,res)=>{
+app.get('/',(req,res)=>{
   res.send("hello world")
 })
 
