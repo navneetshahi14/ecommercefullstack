@@ -5,8 +5,6 @@ import NewProduct from '../Components/NewProduct'
 
 const HomePage = () => {
 
- 
-
   return (
     <>
         <div className='w-full min-h-screen h-auto '>

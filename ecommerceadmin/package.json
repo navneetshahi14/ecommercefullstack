@@ -2,7 +2,7 @@
   "name": "ecommerceadmin",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://vercel.com/navneet-shahis-projects-727aeff0/ecommercefullstack/6M542MdL4orWdEdcwTp6Ta58UWdR",
+  "proxy": "https://ecommercefullstack-1-6w1z.onrender.com",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

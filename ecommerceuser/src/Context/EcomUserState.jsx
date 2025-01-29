@@ -19,6 +19,7 @@ const EcomUserState = ({children}) => {
     const [usersId,setUsersId] = useState(JSON.parse(localStorage.getItem('userId')) || "")
     const [orderdetail,setOrderdetail] = useState(false)
     const [detailedproduct,setDetailedProduct] = useState([])
+    
 
 
     const handlePayment =async(userId,receipt,amount)=>{
@@ -363,6 +364,7 @@ const EcomUserState = ({children}) => {
     }
 
     const value = {products,setProducts,getnewProducts,newProduct,cartProduct,setCartProduct,addtocart,featured,getfeatured,getProducts,allproducts,allProduct,settingfeaturedproducts,cartProducts,cartIt,removefromcart,logged,user,setUser,setLogged,addressform,setAddressform,updatingAddress,userdetails,viewdetails,handlePayment,showcaseProduct,productshowcase,orderfound,findorders ,orderdetail,setOrderdetail,findproduct,detailedproduct,setDetailedProduct }
+    
   return (
     <EcomuserContext.Provider value={value}>
         {children}

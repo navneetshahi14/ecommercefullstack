@@ -37,7 +37,7 @@ const Features = () => {
                             <p className='text-[#aaa] text-sm '>{featured?.description}</p>
                             <div className='flex gap-5 mt-4'>
                                 <button className='btn-default'>Read more</button>
-                                <button onClick={()=>addtocart(featured?._id)} className='btn-cart inline-flex items-center justify-center'><i className="fa-solid fa-cart-shopping mr-2"></i>Add to Cart</button>
+                                <button onClick={()=>addtocart(featured?._id)} className='btn-cart inline-flex items-center justify-center hover:scale-[1.1]'><i className="fa-solid fa-cart-shopping mr-2"></i>Add to Cart</button>
                             </div>
                         </div>
                     </div>

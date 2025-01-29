@@ -1,7 +1,6 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import EcomuserContext from '../Context/EcomuserContext'
-
 
 
 const ProductBox = ({products}) => {
@@ -10,6 +9,8 @@ const ProductBox = ({products}) => {
     const {addtocart} = useContext(EcomuserContext)
 
     const url = '/product/'+products._id
+
+
   return (
     <>
         <div className='flex flex-col items-center justify-center cursor-pointer' >
@@ -26,7 +27,7 @@ const ProductBox = ({products}) => {
                         ₹{products.price}
                     </div>
                     <div >
-                        <button onClick={()=>addtocart(products._id)} className='bg-transparent p-4 rounded-lg flex items-center justify-center py-1 border-[1px] border-primary text-primary gap-1'><i className="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+                        <button onClick={()=>addtocart(products._id)} className='bg-transparent p-4 rounded-lg flex items-center justify-center py-1 border-[1px] border-primary text-primary gap-1 hover:scale-[1.2] hover:bg-primary hover:text-white hover:border-white '><i className="fa-solid fa-cart-shopping"></i>Add to Cart</button>
                     </div>
                 </div>
             </div>

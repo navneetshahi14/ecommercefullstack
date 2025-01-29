@@ -6,12 +6,19 @@ import Otppage from './Pages/Otppage';
 import Allproduct from './Pages/Allproduct';
 import ProductPage from './Pages/ProductPage';
 import Accountpage from './Components/Accountpage';
+import { useContext } from 'react';
+import EcomuserContext from './Context/EcomuserContext';
+import Loader from './Pages/Loader';
 
 
 function App() {
+
+  const {loader} = useContext(EcomuserContext)
+
   return (
     <>
       <div className=" h-screen w-full">
+        
         <Routes>
           <Route path='/login' element={<Authpage isRegistered={false} />}/>
           <Route path='/register' element={<Authpage isRegistered={true} />}/>
