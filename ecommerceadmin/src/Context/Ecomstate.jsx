@@ -41,7 +41,7 @@ const Ecomstate = ({children}) => {
 
     useEffect(()=>{
         if(logged){
-            if(window.location.href === "https://ecommercefullstack-kk8s.vercel.app/login"||window.location.href === "https://ecommercefullstack-kk8s.vercel.app/register"||window.location.href === "https://ecommercefullstack-kk8s.vercel.app/otpcheck"){
+            if(window.location.href === "https://ecommercefullstack-1-6w1z.onrender.com/login"||window.location.href === "https://ecommercefullstack-1-6w1z.onrender.com/register"||window.location.href === "https://ecommercefullstack-kk8s.vercel.app/otpcheck"){
                 navigate('/')
             }
         }
@@ -51,7 +51,7 @@ const Ecomstate = ({children}) => {
     const registerUser = async(name,email,password,type)=>{
         try{
 
-            const res = await fetch('/auth/register',{
+            const res = await fetch('https://ecommercefullstack-1-6w1z.onrender.com/auth/register',{
                 method:"POST",
                 
                 headers:{
@@ -77,7 +77,7 @@ const Ecomstate = ({children}) => {
     const checkotp = async(otp,email)=>{
         try{
 
-            const res = await fetch("/auth/checkotp",{
+            const res = await fetch("https://ecommercefullstack-1-6w1z.onrender.com/auth/checkotp",{
                 method:"POST",
                 
                 headers:{
@@ -104,7 +104,7 @@ const Ecomstate = ({children}) => {
     const authlogin = async(email,password)=>{
         try{
             
-            const res = await fetch("/auth/login",{
+            const res = await fetch("https://ecommercefullstack-1-6w1z.onrender.com/auth/login",{
                 method:"POST",
                 
                 headers:{
@@ -143,7 +143,7 @@ const Ecomstate = ({children}) => {
             images:images
         })
 
-        const {data} = await axios.post('/admin/addproduct',data1,config)
+        const {data} = await axios.post('https://ecommercefullstack-1-6w1z.onrender.com/admin/addproduct',data1,config)
 
         return data
     }
@@ -156,7 +156,7 @@ const Ecomstate = ({children}) => {
                 }
             }
         
-            await axios.get('/admin/allproduct',config).then(response=>{
+            await axios.get('https://ecommercefullstack-1-6w1z.onrender.com/admin/allproduct',config).then(response=>{
                 console.log("Product fetched:-> ",response.data)
                 setAllproducts(response.data)
     
@@ -189,7 +189,7 @@ const Ecomstate = ({children}) => {
                 property:productproperty
             }
 
-            const {data} = await axios.post('/admin/updateproduct',productup,config)
+            const {data} = await axios.post('https://ecommercefullstack-1-6w1z.onrender.com/admin/updateproduct',productup,config)
 
             return data
 
@@ -208,7 +208,7 @@ const Ecomstate = ({children}) => {
                 }
             }
 
-            const {data} = await axios.post('/admin/deleteproduct',{id},config)
+            const {data} = await axios.post('https://ecommercefullstack-1-6w1z.onrender.com/admin/deleteproduct',{id},config)
             return data
             
         } catch (error) {
@@ -226,7 +226,7 @@ const Ecomstate = ({children}) => {
                 }
             }
 
-            const {data} = await axios.post('/admin/categoryCreation',{catename:name,parent:parentCate,properties:properties.map(p=>({name:p.name,values:p.values.split(',')}))},config)
+            const {data} = await axios.post('https://ecommercefullstack-1-6w1z.onrender.com/admin/categoryCreation',{catename:name,parent:parentCate,properties:properties.map(p=>({name:p.name,values:p.values.split(',')}))},config)
 
             return data
 
@@ -245,7 +245,7 @@ const Ecomstate = ({children}) => {
                 }
             }
     
-            const {data}= await axios.get('/admin/categoryshow',config)
+            const {data}= await axios.get('https://ecommercefullstack-1-6w1z.onrender.com/admin/categoryshow',config)
     
             setAllcate(data)
 
@@ -263,7 +263,7 @@ const Ecomstate = ({children}) => {
                 }
             }
     
-            const {data} = await axios.post('/admin/categoryUpdate',{cateId:id,name,parent,properties:properties.map(p=>({name:p.name,values:p.values.split(',')}))},config)
+            const {data} = await axios.post('https://ecommercefullstack-1-6w1z.onrender.com/admin/categoryUpdate',{cateId:id,name,parent,properties:properties.map(p=>({name:p.name,values:p.values.split(',')}))},config)
     
             return data
 
@@ -281,7 +281,7 @@ const Ecomstate = ({children}) => {
                 }
             }
     
-            const {data} = await axios.post('/admin/categorydelete',{id:id},config)
+            const {data} = await axios.post('https://ecommercefullstack-1-6w1z.onrender.com/admin/categorydelete',{id:id},config)
     
             return data
         }catch(err){
@@ -302,7 +302,7 @@ const Ecomstate = ({children}) => {
             currentid:id
         }
 
-        const {data} = await axios.post('/admin/setFeatured',body,config)
+        const {data} = await axios.post('https://ecommercefullstack-1-6w1z.onrender.com/admin/setFeatured',body,config)
 
         return data
     }
@@ -317,7 +317,7 @@ const Ecomstate = ({children}) => {
                 }
             }
     
-            const {data} = await axios.get('/admin/getFeatured',config)
+            const {data} = await axios.get('https://ecommercefullstack-1-6w1z.onrender.com/admin/getFeatured',config)
             
             if(data.msg === "No product featured"){
                 console.log(data.msg)
@@ -340,7 +340,7 @@ const Ecomstate = ({children}) => {
                 }
             }
     
-            const {data} = await axios.get('/admin/Getorders',config)
+            const {data} = await axios.get('https://ecommercefullstack-1-6w1z.onrender.com/admin/Getorders',config)
     
             setorders(data)
         }catch(err){
@@ -359,7 +359,7 @@ const Ecomstate = ({children}) => {
             }
         }
 
-        const {data} = await axios.get('/admin/alluser',config)
+        const {data} = await axios.get('https://ecommercefullstack-1-6w1z.onrender.com/admin/alluser',config)
         console.log(data)
 
         setallUser(data)
@@ -374,7 +374,7 @@ const Ecomstate = ({children}) => {
 
         const pro = await removeDuplicates(productid)
         
-        const res = await fetch(`/user/productfind`,{
+        const res = await fetch(`https://ecommercefullstack-1-6w1z.onrender.com/user/productfind`,{
             method:"POST",
             
             headers:{

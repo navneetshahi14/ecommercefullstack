@@ -25,7 +25,7 @@ const EcomUserState = ({children}) => {
     const handlePayment =async(userId,receipt,amount)=>{
         try{
 
-            const {data} = await axios.post('/payment/createOrder',{
+            const {data} = await axios.post('https://ecommercefullstack-1-6w1z.onrender.com/payment/createOrder',{
                 amount:amount,
                 currency:"INR",
                 receipt:receipt,
@@ -41,7 +41,7 @@ const EcomUserState = ({children}) => {
                 description:"Test transaction",
                 order_id:data.id,
                 handler:async (response) =>{
-                    const verifyUrl = '/payment/verifyPayment'
+                    const verifyUrl = 'https://ecommercefullstack-1-6w1z.onrender.com/payment/verifyPayment'
     
                     const verificationData={
                         razorpay_order_id:response.razorpay_order_id,
@@ -100,7 +100,7 @@ const EcomUserState = ({children}) => {
 
     const getProducts = async()=>{
         try{
-            const data = await fetch('/user/allProduct',{
+            const data = await fetch('https://ecommercefullstack-1-6w1z.onrender.com/user/allProduct',{
                 method:"GET",
                 
                 headers:{
@@ -120,7 +120,7 @@ const EcomUserState = ({children}) => {
 
     const getnewProducts = async()=>{
         try{
-            const data = await fetch("/user/newProduct",{
+            const data = await fetch("https://ecommercefullstack-1-6w1z.onrender.com/user/newProduct",{
                 method:"GET",
                 
                 headers:{
@@ -141,7 +141,7 @@ const EcomUserState = ({children}) => {
 
     const allProduct = async() =>{
         try{
-            const data = await fetch("/user/allProduct",{
+            const data = await fetch("https://ecommercefullstack-1-6w1z.onrender.com/user/allProduct",{
                 method:"GET",
                 
                 headers:{
@@ -159,7 +159,7 @@ const EcomUserState = ({children}) => {
 
     const getfeatured = async()=>{
         try{
-            const data = await fetch("/user/getFeatured",{
+            const data = await fetch("https://ecommercefullstack-1-6w1z.onrender.com/user/getFeatured",{
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json"
@@ -179,7 +179,7 @@ const EcomUserState = ({children}) => {
 
     const cartProducts = async() =>{
         try{
-            const data = await fetch('/user/cartproduct',{
+            const data = await fetch('https://ecommercefullstack-1-6w1z.onrender.com/user/cartproduct',{
                 method:"POST",
                 
                 headers:{
@@ -240,7 +240,7 @@ const EcomUserState = ({children}) => {
         
         try{
 
-            const data = await fetch('/user/addingaddress',{
+            const data = await fetch('https://ecommercefullstack-1-6w1z.onrender.com/user/addingaddress',{
                 method:"POST",
                 
                 headers:{
@@ -273,7 +273,7 @@ const EcomUserState = ({children}) => {
             let length = localStorage.getItem('userId').length
             let userid = localStorage.getItem('userId').substring(1,length-1)
     
-            const res = await fetch(`/user/viewsdetails/${usersId}`,{
+            const res = await fetch(`https://ecommercefullstack-1-6w1z.onrender.com/user/viewsdetails/${usersId}`,{
                 method:"GET",
                 
                 headers:{
@@ -296,7 +296,7 @@ const EcomUserState = ({children}) => {
 
     const productshowcase = async(productid) =>{
         try{
-            const res = await fetch(`/user/product/${productid}`,{
+            const res = await fetch(`https://ecommercefullstack-1-6w1z.onrender.com/user/product/${productid}`,{
                 method:"GET",
                 
                 headers:{
@@ -317,7 +317,7 @@ const EcomUserState = ({children}) => {
 
     const findorders = async() =>{
         try{
-            const res = await fetch(`/user/order/${usersId}`,{
+            const res = await fetch(`https://ecommercefullstack-1-6w1z.onrender.com/user/order/${usersId}`,{
                 method:"GET",
                 
                 headers:{
@@ -345,7 +345,7 @@ const EcomUserState = ({children}) => {
 
             const pro = await removeDuplicates(productid)
             console.log(pro)
-            const res = await fetch(`/user/productfind`,{
+            const res = await fetch(`https://ecommercefullstack-1-6w1z.onrender.com/user/productfind`,{
                 method:"POST",
                 
                 headers:{
