@@ -23,9 +23,6 @@ db()
 app.use(cors())
 app.options('*',cors())
 app.use(bodyparser.json())
-app.use(express.json())
-app.use(express.static(path.resolve(__dirname,"build")))
-// app.use(express.static(path.resolve(__dirname,"build2")))
 
 const Authroute = require('./routes/authRoutes')
 app.use('/auth',Authroute)
@@ -39,5 +36,8 @@ app.use('/user',UserRouter)
 const payment = require('./routes/paymentroutes')
 app.use('/payment',payment)
 
+app.use('/',(req,res)=>{
+  res.send("hello world")
+})
 
 app.listen(process.env.PORT,()=>console.log(`Server Started ${process.env.PORT}`))

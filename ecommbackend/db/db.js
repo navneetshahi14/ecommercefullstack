@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
-// const mongooseUri = "mongodb://0.0.0.0:27017/ecommercebackend"
-// const mongooseUri = 
 
 
 const mongooseConnect=()=>{
