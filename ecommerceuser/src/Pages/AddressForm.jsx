@@ -25,7 +25,7 @@ const AddressForm = () => {
   return (
     <>
         <div className={`fixed bg-[#00000091] top-0 left-0 right-0 bottom-0 flex items-center justify-center  `}>
-            <div className='h-auto w-auto max-w-[60%] p-2 bg-blue-300 rounded-lg animate-dropdown  '>
+            <div className='h-auto w-auto max-w-[90%]  md:max-w-[60%]  p-2 bg-blue-300 rounded-lg animate-dropdown  '>
 
                 <h1 className='font-bold text-2xl flex justify-between px-10 pt-5'>Update Address <i onClick={()=>setAddressform(false)} className='fa-solid fa-xmark cursor-pointer'></i></h1> 
 

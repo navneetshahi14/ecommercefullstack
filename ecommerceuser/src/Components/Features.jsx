@@ -33,11 +33,11 @@ const Features = () => {
                 <div className="grid grid-cols-2 gap-10 w-full ">
                     <div className='flex flex-col items-center justify-center'>
                         <div>
-                            <h1 className='m-0 font-normal text-[3rem] mb-3'>{featured?.title}</h1>
+                            <h1 className='m-0 font-normal md:text-[3rem] text-[2rem] mb-3'>{featured?.title}</h1>
                             <p className='text-[#aaa] text-sm '>{featured?.description}</p>
-                            <div className='flex gap-5 mt-4'>
-                                <button className='btn-default'>Read more</button>
-                                <button onClick={()=>addtocart(featured?._id)} className='btn-cart inline-flex items-center justify-center hover:scale-[1.1]'><i className="fa-solid fa-cart-shopping mr-2"></i>Add to Cart</button>
+                            <div className='flex md:flex-row flex-col gap-5 mt-4'>
+                                <button className='btn-default md:text-xl text-lg'>Read more</button>
+                                <button onClick={()=>addtocart(featured?._id)} className='btn-cart md:text-xl text-lg inline-flex items-center justify-center hover:scale-[1.1]'><i className="fa-solid fa-cart-shopping mr-2"></i>Add to Cart</button>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-import axios from 'axios'
+// import axios from 'axios'
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import EcomuserContext from '../Context/EcomuserContext'
@@ -26,13 +26,11 @@ const Otppage = ({length=4}) => {
 
     const handleSubmit =async()=>{
 
-        alert(finalotp)
-        alert(email)
 
         if(finalotp.toString().length != length || !email){
-            console.log("Please fill all the fields")
+            alert("Please fill all the fields")
         }else{
-            const res = await fetch('http://0.0.0.0:8000/auth/checkotp',{
+            const res = await fetch('https://ecommercefullstack-1-6w1z.onrender.com/auth/checkotp',{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"
@@ -43,7 +41,6 @@ const Otppage = ({length=4}) => {
             })
 
             const resdata = await res.json()
-            console.log(resdata.msg)
             if(resdata.msg === "Login Successfull"){
                 localStorage.removeItem('email')
                 localStorage.setItem('user',JSON.stringify(resdata))
@@ -103,7 +100,7 @@ const Otppage = ({length=4}) => {
   return (
     <>
         <div className="bg-blue-900 h-screen w-full flex flex-col items-center justify-center">
-            <div className="w-[40%] h-[40%] bg-slate-300 flex flex-col items-center justify-center gap-4 rounded shadow-md">
+            <div className="md:w-[40%] md:h-[40%] w-[80%] h-[50%]  bg-slate-300 flex flex-col items-center justify-center gap-4 rounded shadow-md">
                 <p className="text-3xl font-bold " >OTP</p>
                 <div className="shadow-md w-[70%] text-center py-2">
                     {

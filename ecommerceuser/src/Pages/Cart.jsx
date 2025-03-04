@@ -41,10 +41,10 @@ const Cart = () => {
 
   return (
     <>
-        <div className="">
+        <div className="overflow-x-hidden">
             <Headers />
-            <div className="max-w-[1200px] mx-auto my-0 px-[20px] py-0  ">
-                <div className="flex gap-10 mt-10 h-auto">
+            <div className="max-w-[1100px] mx-auto my-0 px-[20px] py-0  ">
+                <div className="flex gap-10 mt-10 h-auto md:flex-row flex-col">
                     <div className="bg-[#ffffff] rounded-xl p-8 h-auto min-w-[60%]">
                         <h2 className='text-3xl font-bold mb-7'>Cart</h2>
                         {

@@ -7,7 +7,7 @@ const HomePage = () => {
 
   return (
     <>
-        <div className='w-full min-h-screen h-auto '>
+        <div className='w-full min-h-screen h-auto overflow-x-hidden'>
             <Headers/>
             <Features  />
             <NewProduct />

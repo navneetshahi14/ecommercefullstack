@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <>
-        <aside className={`text-gray-500 md:text-gray-500 p-4 md:pr-0 fixed md:h-screen h-full md:relative md:-left-0 w-full bg-bgGray md:bg-bgGray md:w-auto duration-500 transition-[left] ${shownav?"-left-0":"-left-full"}`} >
+        <aside className={`text-gray-500 md:text-gray-500 p-4 md:pr-0 fixed md:h-screen h-full md:relative md:-left-0 w-full bg-bgGray md:bg-bgGray md:w-auto duration-500 transition-[left] ${shownav?"-left-0":"-left-full"} z-[2]`} >
             <i className="fa-solid fa-xmark absolute right-0 top-0 cursor-pointer mx-2 mt-1 mr-4 text-xl md:hidden" onClick={()=>setShownav(false)}></i>
             <Link className='flex gap-2 items-center mb-4 mr-4'>
                 <i className="fa-solid fa-store text-primary md:text-blue-400"></i>

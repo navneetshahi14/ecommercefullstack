@@ -19,13 +19,15 @@ const EcomUserState = ({children}) => {
     const [usersId,setUsersId] = useState(JSON.parse(localStorage.getItem('userId')) || "")
     const [orderdetail,setOrderdetail] = useState(false)
     const [detailedproduct,setDetailedProduct] = useState([])
+
+    const API = "https://ecommercefullstack-1-6w1z.onrender.com"
     
 
 
     const handlePayment =async(userId,receipt,amount)=>{
         try{
 
-            const {data} = await axios.post('https://ecommercefullstack-1-6w1z.onrender.com/payment/createOrder',{
+            const {data} = await axios.post(`${API}/payment/createOrder`,{
                 amount:amount,
                 currency:"INR",
                 receipt:receipt,
@@ -34,14 +36,14 @@ const EcomUserState = ({children}) => {
             })
     
             const options ={
-                key:"rzp_test_ABHdMVyARnFrif",
+                key:"rzp_test_jGp9JHSZuZQ4XZ",
                 amount:data.amount,
                 currency:data.currency,
                 name:"Navneet Ecommerce",
                 description:"Test transaction",
                 order_id:data.id,
                 handler:async (response) =>{
-                    const verifyUrl = 'https://ecommercefullstack-1-6w1z.onrender.com/payment/verifyPayment'
+                    const verifyUrl = `${API}/payment/verifyPayment`
     
                     const verificationData={
                         razorpay_order_id:response.razorpay_order_id,
@@ -100,7 +102,7 @@ const EcomUserState = ({children}) => {
 
     const getProducts = async()=>{
         try{
-            const data = await fetch('https://ecommercefullstack-1-6w1z.onrender.com/user/allProduct',{
+            const data = await fetch(`${API}/user/allProduct`,{
                 method:"GET",
                 
                 headers:{
@@ -120,7 +122,7 @@ const EcomUserState = ({children}) => {
 
     const getnewProducts = async()=>{
         try{
-            const data = await fetch("https://ecommercefullstack-1-6w1z.onrender.com/user/newProduct",{
+            const data = await fetch(`${API}/user/newProduct`,{
                 method:"GET",
                 
                 headers:{
@@ -141,7 +143,7 @@ const EcomUserState = ({children}) => {
 
     const allProduct = async() =>{
         try{
-            const data = await fetch("https://ecommercefullstack-1-6w1z.onrender.com/user/allProduct",{
+            const data = await fetch(`${API}/user/allProduct`,{
                 method:"GET",
                 
                 headers:{
@@ -159,7 +161,7 @@ const EcomUserState = ({children}) => {
 
     const getfeatured = async()=>{
         try{
-            const data = await fetch("https://ecommercefullstack-1-6w1z.onrender.com/user/getFeatured",{
+            const data = await fetch(`${API}/user/getFeatured`,{
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json"
@@ -179,7 +181,7 @@ const EcomUserState = ({children}) => {
 
     const cartProducts = async() =>{
         try{
-            const data = await fetch('https://ecommercefullstack-1-6w1z.onrender.com/user/cartproduct',{
+            const data = await fetch(`${API}/user/cartproduct`,{
                 method:"POST",
                 
                 headers:{
@@ -240,7 +242,7 @@ const EcomUserState = ({children}) => {
         
         try{
 
-            const data = await fetch('https://ecommercefullstack-1-6w1z.onrender.com/user/addingaddress',{
+            const data = await fetch(`${API}/user/addingaddress`,{
                 method:"POST",
                 
                 headers:{
@@ -273,7 +275,7 @@ const EcomUserState = ({children}) => {
             let length = localStorage.getItem('userId').length
             let userid = localStorage.getItem('userId').substring(1,length-1)
     
-            const res = await fetch(`https://ecommercefullstack-1-6w1z.onrender.com/user/viewsdetails/${usersId}`,{
+            const res = await fetch(`${API}/user/viewsdetails/${usersId}`,{
                 method:"GET",
                 
                 headers:{
@@ -296,7 +298,7 @@ const EcomUserState = ({children}) => {
 
     const productshowcase = async(productid) =>{
         try{
-            const res = await fetch(`https://ecommercefullstack-1-6w1z.onrender.com/user/product/${productid}`,{
+            const res = await fetch(`${API}/user/product/${productid}`,{
                 method:"GET",
                 
                 headers:{
@@ -317,7 +319,7 @@ const EcomUserState = ({children}) => {
 
     const findorders = async() =>{
         try{
-            const res = await fetch(`https://ecommercefullstack-1-6w1z.onrender.com/user/order/${usersId}`,{
+            const res = await fetch(`${API}/user/order/${usersId}`,{
                 method:"GET",
                 
                 headers:{
@@ -345,7 +347,7 @@ const EcomUserState = ({children}) => {
 
             const pro = await removeDuplicates(productid)
             console.log(pro)
-            const res = await fetch(`https://ecommercefullstack-1-6w1z.onrender.com/user/productfind`,{
+            const res = await fetch(`${API}/user/productfind`,{
                 method:"POST",
                 
                 headers:{

@@ -13,12 +13,13 @@ const Allproduct = () => {
     <>
         <div className="">
             <Headers />
-            <div className="grid  grid-cols-3 gap-8 pt-5">
+            <div className="flex md:flex-row flex-col p-6 items-center gap-5 flex-wrap ">
                 {
                     products.map(product =>(
                         <ProductBox key={product._id} products={product} />
                     ))
                 }
+                
             </div>
         </div>
     </>

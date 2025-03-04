@@ -9,7 +9,6 @@ const register = async(req,res) =>{
     try{
 
         const {name,email,password,type} = req.body
-        console.log(name+","+email+","+password)
 
         if(!name || !email || !password || !type){
             res.status(400).json({msg:"Please fill all the fields"})

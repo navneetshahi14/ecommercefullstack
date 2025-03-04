@@ -22,8 +22,8 @@ const DashBoard = () => {
   return (
     <>
       <div className='bg-bgGray min-h-screen'>
-          <div className="max-h-screen w-full bg-highlight md:bg-bgGray flex overflow-hidden ">
-            <button className=' flex items-start md:hidden ' onClick={()=>setShownav(true)}><i className="fa-solid fa-bars mt-2 mx-2"></i></button>
+          <div className="h-screen w-full bg-highlight md:bg-bgGray flex overflow-hidden ">
+            <button className=' flex  items-start md:hidden ' onClick={()=>setShownav(true)}><i className="fa-solid fa-bars mt-2 mx-2"></i></button>
             <Navbar show={shownav} />
 
               <div className="bg-highlight h-auto md:max-h-[98%] shadow-md flex-grow md:mt-2 md:mr-2 md:rounded-lg p-4 mb-2 overflow-auto ">
