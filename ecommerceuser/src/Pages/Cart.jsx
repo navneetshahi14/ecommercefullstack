@@ -66,7 +66,6 @@ const Cart = () => {
                                         </thead>
                                         <tbody>
                                             {
-                                                prod?.length > 0 &&
                                                 prod.map(product => (
                                                     <tr key={product._id}>
                                                         <td className='flex items-center gap-2'>
