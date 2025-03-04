@@ -117,7 +117,6 @@ const showCategory = async(req,res)=>{
     try{
         const categorys = await category.find().populate('parent')
 
-        // console.log(categorys)
         res.status(200).send(categorys)
 
     }catch(err){
@@ -172,7 +171,6 @@ const setFeaturedProduct = async(req,res) =>{
         const { previd,currentid } = req.body
 
 
-        console.log(previd,currentid)
 
         if(previd === null){
         
@@ -214,7 +212,6 @@ const getFeatured = async(req,res)=>{
     try{
 
         const checkfeatured = await featured.find()
-        console.log(checkfeatured)
         if(checkfeatured.length > 0){
             res.status(200).json({previd:checkfeatured[0]._id,productid:checkfeatured[0].productid})
         }else{
@@ -241,7 +238,6 @@ const fetchingOrders = async(req,res) =>{
     try{
 
         const allusers  = await user.find({type:"User"})
-        console.log("allusers ",allusers)
         res.status(200).send(allusers)
         
     }catch(err){

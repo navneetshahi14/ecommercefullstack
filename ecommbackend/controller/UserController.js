@@ -64,21 +64,12 @@ const getFeatured = async(req,res)=>{
 }
 
 
-// const orderedProduct = async(req,res) =>{
-//     try {
-//         // const {name,email,city,postal}
-//     } catch (error) {
-        
-//     }
-// }
-
 
 const addingaddress = async(req,res) =>{
     try{
         const {userId,address,postal,City,Country,PhoneNo} = req.body
 
         const userfind = await userDetailsForm.find({userId:userId})
-        console.log(userfind)
 
         if(userfind.length >0){
             const updateuser = await userDetailsForm.findOneAndUpdate({userId:userId},{
