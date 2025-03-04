@@ -65,25 +65,27 @@ const Cart = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {prod.map(product => (
-                                                <tr key={product._id}>
-                                                    <td className='flex items-center gap-2'>
-                                                        <div className='w-[100px] flex items-center justify-center h-[100px] p-2 border rounded-lg shadow-4xl'>
-                                                            <img src={product.image[0]} alt="" className='max-w-[80%] '/>
-                                                        </div>
-                                                        {product.title}
-                                                    </td>
-                                                    <td>
-                                                        <button onClick={()=>{removefromcart(product._id)}} className=' p-2 py-1 shadow-4xl text-sm text-[#aaa] border rounded-lg bg-[#f0f0f0]'><i className="fa-solid fa-minus" ></i></button>
-                                                        <span className='px-2 py-0'>
-                                                            {cartProduct.filter(id => id === product._id).length}
-                                                        </span>
-                                                        <button className='p-2 py-1 shadow-4xl text-sm text-[#aaa] border rounded-lg  bg-[#f0f0f0]' onClick={()=>addtocart(product._id)}><i className="fa-solid fa-plus"></i></button>
-                                                    </td>
-                                                    <td>
-                                                        ₹{cartProduct.filter(id => id === product._id).length * product.price}
-                                                    </td>
-                                                </tr>
+                                            {
+                                                prod?.length > 0 &&
+                                                prod.map(product => (
+                                                    <tr key={product._id}>
+                                                        <td className='flex items-center gap-2'>
+                                                            <div className='w-[100px] flex items-center justify-center h-[100px] p-2 border rounded-lg shadow-4xl'>
+                                                                <img src={product.image[0]} alt="" className='max-w-[80%] '/>
+                                                            </div>
+                                                            {product.title}
+                                                        </td>
+                                                        <td>
+                                                            <button onClick={()=>{removefromcart(product._id)}} className=' p-2 py-1 shadow-4xl text-sm text-[#aaa] border rounded-lg bg-[#f0f0f0]'><i className="fa-solid fa-minus" ></i></button>
+                                                            <span className='px-2 py-0'>
+                                                                {cartProduct.filter(id => id === product._id).length}
+                                                            </span>
+                                                            <button className='p-2 py-1 shadow-4xl text-sm text-[#aaa] border rounded-lg  bg-[#f0f0f0]' onClick={()=>addtocart(product._id)}><i className="fa-solid fa-plus"></i></button>
+                                                        </td>
+                                                        <td>
+                                                            ₹{cartProduct.filter(id => id === product._id).length * product.price}
+                                                        </td>
+                                                    </tr>
                                             ))}
                                             <tr>
                                                 <td className='font-bold text-xl px-4'>Total</td>
