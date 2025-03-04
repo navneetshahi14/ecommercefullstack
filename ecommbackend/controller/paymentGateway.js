@@ -1,13 +1,13 @@
+const dotenv = require('dotenv')
+dotenv.config()
 const razorpay = require('razorpay')
 const orders = require('../model/orderSchema')
 const crypto = require('crypto');
-const dotenv = require('dotenv')
-dotenv.config()
-
 
 
 const creatingOrder = async(req,res)=>{
     const { amount, currency, receipt , userId, products } = req.body;
+    console.log(amount+" "+currency+" "+receipt+" "+userId+" "+products)
     
 
     try{
@@ -24,6 +24,7 @@ const creatingOrder = async(req,res)=>{
         }
 
         const order = await rzpay.orders.create(options)
+        console.log(order)
 
         const paymentDetails = new orders({
             orderId:order.id,
