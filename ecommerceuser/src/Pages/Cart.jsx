@@ -14,7 +14,7 @@ const Cart = () => {
     useEffect(()=>{
         
         if(cartProduct.length >0){
-            axios.post('/user/cartproduct',{ids:cartProduct}).then(response => {
+            axios.post('https://ecommercefullstack-1-6w1z.onrender.com/user/cartproduct',{ids:cartProduct}).then(response => {
                 setProd(response.data)
             })
         }
@@ -66,6 +66,7 @@ const Cart = () => {
                                         </thead>
                                         <tbody>
                                             {
+
                                                 prod.map(product => (
                                                     <tr key={product._id}>
                                                         <td className='flex items-center gap-2'>
