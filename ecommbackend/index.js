@@ -8,7 +8,7 @@ const path = require('path')
 const cors = require('cors')
 db()
 
-const allowedOrigins = ['https://ecommerceuser.onrender.com/', 'https://ecommerceadmin-txez.onrender.com/'];
+const allowedOrigins = ['https://ecommerceuser.onrender.com', 'https://ecommerceadmin-txez.onrender.com'];
 
 const corsOptions = {
   origin: (origin, callback) => {
@@ -22,7 +22,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions))
-app.options('*',cors())
+app.options('*',cors(corsOptions))
 app.use(bodyparser.json())
 
 const Authroute = require('./routes/authRoutes')
