@@ -7,7 +7,6 @@ const crypto = require('crypto');
 
 const creatingOrder = async(req,res)=>{
     const { amount, currency, receipt , userId, products } = req.body;
-    console.log(amount+" "+currency+" "+receipt+" "+userId+" "+products)
     
 
     try{
@@ -15,11 +14,9 @@ const creatingOrder = async(req,res)=>{
         const RZID = process.env.RZID
         const RZSecert = process.env.RZSECRET
 
-        console.log(RZID,RZSecert)
-
         const rzpay = new razorpay({
             key_id:RZID,
-            key_secret:process.env.RZSECRET
+            key_secret:RZSecert
         })
 
         const options = {
