@@ -12,8 +12,13 @@ const creatingOrder = async(req,res)=>{
 
     try{
 
+        const RZID = process.env.RZID
+        const RZSecert = process.env.RZSECRET
+
+        console.log(RZID,RZSecert)
+
         const rzpay = new razorpay({
-            key_id:process.env.RZID,
+            key_id:RZID,
             key_secret:process.env.RZSECRET
         })
 
