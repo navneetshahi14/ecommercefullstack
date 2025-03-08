@@ -26,7 +26,7 @@ const creatingOrder = async(req,res)=>{
         }
 
         const order = await rzpay.orders.create(options)
-        console.log(order)
+        // console.log(order)
 
         const paymentDetails = new orders({
             orderId:order.id,
