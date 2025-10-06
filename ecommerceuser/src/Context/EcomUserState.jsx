@@ -20,8 +20,8 @@ const EcomUserState = ({children}) => {
     const [orderdetail,setOrderdetail] = useState(false)
     const [detailedproduct,setDetailedProduct] = useState([])
 
-    // const API = "https://ecommercefullstack-1-6w1z.onrender.com"
-    const API = "http://localhost:8000"
+    const API = "https://ecommercefullstack-1-6w1z.onrender.com"
+    // const API = "http://localhost:8000"
     
 
 
