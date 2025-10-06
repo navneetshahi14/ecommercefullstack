@@ -36,7 +36,7 @@ const EcomUserState = ({children}) => {
             })
     
             const options ={
-                key:"rzp_test_jGp9JHSZuZQ4XZ",
+                key:"rzp_test_RQ5zcJxCXyLFMk",
                 amount:data.amount,
                 currency:data.currency,
                 name:"Navneet Ecommerce",
