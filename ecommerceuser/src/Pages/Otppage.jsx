@@ -30,7 +30,7 @@ const Otppage = ({length=4}) => {
         if(finalotp.toString().length != length || !email){
             alert("Please fill all the fields")
         }else{
-            const res = await fetch('http://localhost:8000/auth/checkotp',{
+            const res = await fetch('https://ecommercefullstack-1-6w1z.onrender.com/auth/checkotp',{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"

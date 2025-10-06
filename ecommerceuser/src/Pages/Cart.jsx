@@ -14,7 +14,7 @@ const Cart = () => {
     useEffect(()=>{
         
         if(cartProduct.length >0){
-            axios.post('http://localhost:8000/user/cartproduct',{ids:cartProduct}).then(response => {
+            axios.post('https://ecommercefullstack-1-6w1z.onrender.com/user/cartproduct',{ids:cartProduct}).then(response => {
                 setProd(response.data)
             })
         }
@@ -27,7 +27,7 @@ const Cart = () => {
     for(const productid of cartProduct){
         console.log(allproducts.find(p=>p._id === productid))
         
-        const pricetoshow = parseInt(allproducts.find(p => p._id === productid)?.price || 0)
+        const pricetoshow = parseInt(allproducts?.find(p => p._id === productid)?.price || 0)
         total += pricetoshow
 
     }
