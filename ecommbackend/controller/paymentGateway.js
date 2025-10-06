@@ -18,7 +18,7 @@ const creatingOrder = async (req, res) => {
         });
 
         const options = {
-            amount: amount * 100,
+            amount: amount,
             currency,
             receipt,
         };
@@ -29,7 +29,7 @@ const creatingOrder = async (req, res) => {
 
         const paymentDetails = new orders({
             orderId: order.id,
-            userId: JSON.parse(userId),
+            userId: userId,
             products,
             status: "Pending",
             amount: amount,
@@ -38,7 +38,7 @@ const creatingOrder = async (req, res) => {
         await paymentDetails.save();
         res.json(order);
     } catch (err) {
-        console.log("Error:", err.message);
+        console.log("Error:", err);
         res.status(500).json({ error: err.message });
     }
 };

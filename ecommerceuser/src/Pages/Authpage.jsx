@@ -8,6 +8,8 @@ const Authpage = ({isRegistered=false}) => {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
 
+    const API = 'https://ecommercefullstack-1-6w1z.onrender.com'
+
     const navigate = useNavigate()
 
     const handlesubmition = async ()=>{
@@ -17,7 +19,7 @@ const Authpage = ({isRegistered=false}) => {
                 alert("Please fill all the fields")
             }else{
                 
-                const res = await fetch('https://ecommercefullstack-1-6w1z.onrender.com/auth/register',{
+                const res = await fetch('http://localhost:8000/auth/register',{
                     method:"POST",
                     headers:{
                         "Content-Type":"application/json"
@@ -47,7 +49,7 @@ const Authpage = ({isRegistered=false}) => {
                 alert("login")
                 alert("Please fill all the fields")
             }else{
-                const res  = await fetch('https://ecommercefullstack-1-6w1z.onrender.com/auth/login',{
+                const res  = await fetch('http://localhost:8000/auth/login',{
                     method:"POST",
                     headers:{
                         "Content-Type":"application/json"

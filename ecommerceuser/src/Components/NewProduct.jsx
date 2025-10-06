@@ -12,11 +12,11 @@ const NewProduct = () => {
 
   return (
     <>
-        <div className="md:max-w-[1200px] w-full mx-auto my-0 px-[20px] pb-3 ">
+        <div className="md:max-w-[90%] w-full mx-auto my-0 px-[20px] pb-3 ">
             <h1 className="text-[2rem] pl-10 mt-[30px] mx-0 mb-[20px] font-[500] cursor-pointer">
                 New Arriavls
             </h1>
-            <div className="flex gap-10 w-[100%] overflow-x-auto">
+            <div className="flex flex-row flex-wrap gap-5 md:justify-center items-center w-[100%] overflow-x-auto ">
                 {newProduct?.length> 0 && newProduct.map(product=>(
                     <ProductBox products={product} />
                 ))}

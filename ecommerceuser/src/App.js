@@ -18,7 +18,6 @@ function App() {
   return (
     <>
       <div className=" h-screen w-full">
-        
         <Routes>
           <Route path='/login' element={<Authpage isRegistered={false} />}/>
           <Route path='/register' element={<Authpage isRegistered={true} />}/>

@@ -14,7 +14,7 @@ const Cart = () => {
     useEffect(()=>{
         
         if(cartProduct.length >0){
-            axios.post('https://ecommercefullstack-1-6w1z.onrender.com/user/cartproduct',{ids:cartProduct}).then(response => {
+            axios.post('http://localhost:8000/user/cartproduct',{ids:cartProduct}).then(response => {
                 setProd(response.data)
             })
         }
@@ -112,7 +112,7 @@ const Cart = () => {
                                 <button className='bg-purple-600 p-2 px-4 rounded-sm shadow-md mt-4 text-white' onClick={()=>setAddressform(true)}>Edit Details</button>
                             </div>
                             <div className="my-2 py-2 ">
-                                <button onClick={()=>handlePayment(localStorage.getItem('userId'),localStorage.getItem("name").substring(1,lengthname-1),total)} className='bg-gray-700 p-1 rounded text-gray-300 px-5'>Continue to Payment</button>                                                             
+                                <button onClick={()=>handlePayment(JSON.parse(localStorage.getItem('userId')),localStorage.getItem("name").substring(1,lengthname-1),total)} className='bg-gray-700 p-1 rounded text-gray-300 px-5'>Continue to Payment</button>                                                             
                                 
                             </div>
                         </div>

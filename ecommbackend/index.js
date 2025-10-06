@@ -8,7 +8,7 @@ const path = require('path')
 const cors = require('cors')
 db()
 
-const allowedOrigins = ['https://ecommerceuser.onrender.com', 'https://ecommerceadmin-txez.onrender.com'];
+const allowedOrigins = ['https://ecommerceuser.onrender.com', 'https://ecommerceadmin-txez.onrender.com',"http://localhost:3000","http://localhost:3001"];
 
 const corsOptions = {
   origin: (origin, callback) => {
@@ -21,7 +21,8 @@ const corsOptions = {
   },
 };
 
-app.use(cors(corsOptions))
+// app.use(cors(corsOptions))
+app.use(cors())
 app.options('*',cors(corsOptions))
 app.use(bodyparser.json())
 
@@ -38,7 +39,7 @@ const payment = require('./routes/paymentroutes')
 app.use('/payment',payment)
 
 app.get('/',(req,res)=>{
-  res.send("hello world")
+  res.send("Server is up and running")
 })
 
 app.listen(process.env.PORT,()=>console.log(`Server Started ${process.env.PORT}`))

@@ -13,7 +13,7 @@ const Allproduct = () => {
     <>
         <div className="">
             <Headers />
-            <div className="flex md:flex-row flex-col p-6 items-center gap-5 flex-wrap ">
+            <div className="flex flex-row flex-wrap p-6 items-center gap-5 md:justify-center ">
                 {
                     products.map(product =>(
                         <ProductBox key={product._id} products={product} />
